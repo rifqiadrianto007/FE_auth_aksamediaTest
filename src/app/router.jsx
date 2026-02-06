@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Profile from "../pages/Profile"
+import Users from "../pages/Users"
 
 import Login from "../pages/Login"
 import Dashboard from "../pages/Dashboard"
@@ -25,6 +26,15 @@ export default function AppRouter() {
                 element={
                     <ProtectedRoute>
                         <Profile />
+                    </ProtectedRoute>
+                }
+            />
+
+            <Route
+                path="/users"
+                element={
+                    <ProtectedRoute>
+                        <Users />
                     </ProtectedRoute>
                 }
             />

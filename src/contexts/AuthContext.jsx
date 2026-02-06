@@ -1,23 +1,15 @@
-import { createContext, useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import { authRepo } from "../database/authRepo"
 import { STATIC_CREDENTIAL } from "../utils/auth"
-
-export const AuthContext = createContext()
+import { AuthContext } from "./AuthContextBase"
+import { authStore } from "../stores/authStore"
 
 export function AuthProvider({ children }) {
 
-    const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        initAuth()
-    }, [])
-
-    async function initAuth() {
-        const currentUser = await authRepo.getCurrentUser()
-        setUser(currentUser || null)
-        setLoading(false)
-    }
+    const { user, loading } = useSyncExternalStore(
+        authStore.subscribe,
+        authStore.getSnapshot
+    )
 
     async function login(username, password) {
 
@@ -33,7 +25,7 @@ export function AuthProvider({ children }) {
             }
 
             await authRepo.login(userData)
-            setUser(userData)
+            authStore.setUser(userData)
 
             return { success: true }
         }
@@ -46,12 +38,12 @@ export function AuthProvider({ children }) {
 
     async function logout() {
         await authRepo.logout()
-        setUser(null)
+        authStore.setUser(null)
     }
 
     async function updateProfile(data) {
         const updated = await authRepo.updateUser(data)
-        setUser(updated)
+        authStore.setUser(updated)
     }
 
     return (

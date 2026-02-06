@@ -37,6 +37,17 @@ export default function Navbar() {
             >
 
                 <button
+                    onClick={() => navigate("/users")}
+                    className="
+    block w-full text-left
+    px-4 py-2
+    hover:bg-gray-100 dark:hover:bg-gray-700
+  "
+                >
+                    Users
+                </button>
+
+                <button
                     onClick={() => navigate("/profile")}
                     className="
             block w-full text-left

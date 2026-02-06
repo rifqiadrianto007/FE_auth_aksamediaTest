@@ -1,16 +1,134 @@
-# React + Vite
+# Aksamedia Frontend Test App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Aksamedia Frontend Test App adalah aplikasi web berbasis ReactJS yang
+dibuat untuk memenuhi tech test Frontend Developer Intern di PT
+Aksamedia Mulia Digital. Aplikasi ini mensimulasikan sistem autentikasi
+dan manajemen data user tanpa menggunakan API eksternal. Semua data
+disimpan secara lokal menggunakan IndexedDB.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikasi ini dirancang dengan clean architecture, responsive design,
+serta mendukung persistence state dan theme management sesuai
+requirement yang diberikan.
 
-## React Compiler
+------------------------------------------------------------------------
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Demo
 
-## Expanding the ESLint configuration
+Live Demo:\
+https://fe-auth-eight.vercel.app/login
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Repository Github:\
+https://github.com/rifqiadrianto007/FE_auth_aksamediaTest
+
+------------------------------------------------------------------------
+
+## Login Credential
+
+Gunakan credential berikut untuk login:
+
+Username: admin
+
+Password: 123456
+
+------------------------------------------------------------------------
+
+## Features
+
+### Authentication
+
+-   Login tanpa API
+-   Credential statis
+-   Persistence login menggunakan IndexedDB
+-   Protected routes
+-   Logout system
+
+### User Management (CRUD)
+
+-   Create user
+-   Read user
+-   Update user
+-   Delete user
+-   Search user
+-   Query string persistence
+
+### Profile Management
+
+-   Edit nama user login
+-   Update realtime di navbar
+-   Persistence menggunakan IndexedDB
+
+### Theme Management
+
+-   Light mode
+-   Dark mode
+-   System mode
+-   Auto sync dengan OS
+-   Persistence theme menggunakan IndexedDB
+
+### Technical Implementation
+
+-   Tanpa backend
+-   Tanpa API
+-   Tanpa UI library eksternal
+-   Fully responsive (mobile, tablet, desktop)
+
+------------------------------------------------------------------------
+
+## Tech Stack
+
+-   ReactJS (Vite)
+-   TailwindCSS
+-   React Router DOM
+-   IndexedDB (idb)
+-   JavaScript (ES6)
+
+------------------------------------------------------------------------
+
+## Installation and Setup
+
+### 1. Clone repository
+
+git clone https://github.com/rifqiadrianto007/FE_auth_aksamediaTest.git
+
+### 2. Masuk ke folder project
+
+cd FE_auth_aksamediaTest
+
+### 3. Install dependencies
+
+npm install
+
+### 4. Jalankan development server
+
+npm run dev
+
+### 5. Buka di browser
+
+http://localhost:5173
+
+------------------------------------------------------------------------
+
+## Build for Production
+
+npm run build
+
+------------------------------------------------------------------------
+
+## Project Structure
+
+src/ ├── app/ \# routing dan protected route\
+├── components/ \# reusable components\
+├── contexts/ \# auth dan theme context\
+├── database/ \# indexedDB config dan repository\
+├── hooks/ \# custom hooks\
+├── pages/ \# halaman aplikasi\
+├── utils/ \# helper dan credential config
+
+------------------------------------------------------------------------
+
+## Author
+
+Nama: Rifqi Adrianto\
+Github: https://github.com/rifqiadrianto007

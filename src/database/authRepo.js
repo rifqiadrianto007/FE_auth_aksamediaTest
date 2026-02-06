@@ -4,7 +4,7 @@ const AUTH_KEY = "current-user"
 
 export const authRepo = {
 
-  async login(user) {
+    async login(user) {
     const db = await dbPromise
     return db.put("auth", {
       id: AUTH_KEY,

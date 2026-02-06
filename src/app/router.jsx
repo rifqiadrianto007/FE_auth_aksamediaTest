@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Profile from "../pages/Profile"
 import Users from "../pages/Users"
 
+// Pages
 import Login from "../pages/Login"
 import Dashboard from "../pages/Dashboard"
 import ProtectedRoute from "./ProtectedRoute"

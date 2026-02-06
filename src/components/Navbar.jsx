@@ -14,52 +14,32 @@ export default function Navbar() {
     }
 
     return (
-        <div className="
-            bg-white dark:bg-gray-900
-            border-b dark:border-gray-700
-            px-4 sm:px-6 py-3
-            flex flex-wrap gap-3 justify-between items-center
-        ">
+        <div className="bg-white dark:bg-gray-900 border-b dark:border-gray-700
+            px-4 sm:px-6 py-3 flex flex-wrap gap-3 justify-between items-center">
 
             <button
                 type="button"
                 onClick={() => navigate("/")}
-                className="font-bold text-left"
-            >
+                className="font-bold text-left">
                 Aksamedia App
             </button>
 
             <Dropdown
                 trigger={
-                    <button className="
-            px-3 py-2
-            bg-gray-100 dark:bg-gray-800
-            rounded
-          ">
+                    <button className="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded">
                         {user?.fullName}
                     </button>
-                }
-            >
+                }>
 
                 <button
                     onClick={() => navigate("/users")}
-                    className="
-    block w-full text-left
-    px-4 py-2
-    hover:bg-gray-100 dark:hover:bg-gray-700
-  "
-                >
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
                     Users
                 </button>
 
                 <button
                     onClick={() => navigate("/profile")}
-                    className="
-            block w-full text-left
-            px-4 py-2
-            hover:bg-gray-100 dark:hover:bg-gray-700
-          "
-                >
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
                     Profile
                 </button>
 
@@ -68,39 +48,27 @@ export default function Navbar() {
                 <button
                     onClick={() => changeTheme("light")}
                     aria-pressed={theme === "light"}
-                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "light" ? "font-semibold" : ""
-                        }`}
-                >
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "light" ? "font-semibold" : ""}`}>
                     Light
                 </button>
 
                 <button
                     onClick={() => changeTheme("dark")}
                     aria-pressed={theme === "dark"}
-                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "dark" ? "font-semibold" : ""
-                        }`}
-                >
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "dark" ? "font-semibold" : ""}`}>
                     Dark
                 </button>
 
                 <button
                     onClick={() => changeTheme("system")}
                     aria-pressed={theme === "system"}
-                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "system" ? "font-semibold" : ""
-                        }`}
-                >
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 ${theme === "system" ? "font-semibold" : ""}`}>
                     System
                 </button>
 
                 <button
                     onClick={handleLogout}
-                    className="
-            block w-full text-left
-            px-4 py-2
-            text-red-500
-            hover:bg-gray-100 dark:hover:bg-gray-700
-          "
-                >
+                    className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700">
                     Logout
                 </button>
 

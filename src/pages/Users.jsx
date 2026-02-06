@@ -5,7 +5,7 @@ import Pagination from "../components/Pagination"
 import { useSearchParams } from "react-router-dom"
 import { usersStore } from "../stores/usersStore"
 
-const LIMIT = 5
+const LIMIT = 5 // users per page
 
 export default function Users() {
 
@@ -99,31 +99,19 @@ export default function Users() {
             <Navbar />
 
             <div className="p-6 max-w-6xl mx-auto w-full">
-
                 <h1 className="text-xl font-bold mb-4">
                     Users
                 </h1>
 
                 <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
-
-                    <input
-                        placeholder="Search"
-                        value={keyword}
-                        onChange={(e) => changeSearch(e.target.value)}
-                        className="border p-2 w-full sm:w-56"
-                    />
-
-                    <input
-                        placeholder="New user"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="border p-2 w-full sm:w-56"
-                    />
-
-                    <button
-                        onClick={handleCreate}
-                        className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto"
-                    >
+                    {/* Search input */}
+                    <input placeholder="Search" value={keyword} className="border p-2 w-full sm:w-56"
+                        onChange={(e) => changeSearch(e.target.value)} />
+                    {/* New user input */}
+                    <input placeholder="New user" value={name} className="border p-2 w-full sm:w-56"
+                        onChange={(e) => setName(e.target.value)} />
+                    <button className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto"
+                        onClick={handleCreate}>
                         Add
                     </button>
 
@@ -131,7 +119,6 @@ export default function Users() {
 
                 <div className="overflow-x-auto">
                     <table className="w-full min-w-130 border">
-
                         <thead>
                             <tr className="bg-gray-100">
                                 <th className="p-2 border">ID</th>
@@ -141,81 +128,54 @@ export default function Users() {
                         </thead>
 
                         <tbody>
-
                             {pageData.map(user => (
                                 <tr key={user.id}>
-
                                     <td className="p-2 border">
                                         {user.id}
                                     </td>
-
                                     <td className="p-2 border">
-
                                         {editingId === user.id ? (
-
-                                            <input
-                                                value={editingName}
-                                                onChange={(e) => setEditingName(e.target.value)}
-                                                className="border p-1"
-                                            />
-
-                                        ) : (
-                                            user.name
-                                        )}
-
+                                            <input value={editingName} className="border p-1"
+                                                onChange={(e) => setEditingName(e.target.value)} />
+                                        ) : (user.name)}
                                     </td>
 
                                     <td className="p-2 border flex flex-wrap gap-2">
-
                                         {editingId === user.id ? (
                                             <>
-                                                <button
-                                                    onClick={() => saveEdit(user.id)}
-                                                    className="text-blue-500"
-                                                >
+                                                <button className="text-blue-500"
+                                                    onClick={() => saveEdit(user.id)}>
                                                     Save
                                                 </button>
 
-                                                <button
-                                                    onClick={cancelEdit}
-                                                    className="text-gray-500"
-                                                >
+                                                <button className="text-gray-500"
+                                                    onClick={cancelEdit}>
                                                     Cancel
                                                 </button>
                                             </>
                                         ) : (
                                             <>
-                                                <button
-                                                    onClick={() => startEdit(user)}
-                                                    className="text-blue-500"
-                                                >
+                                                <button className="text-blue-500"
+                                                    onClick={() => startEdit(user)}>
                                                     Edit
                                                 </button>
 
-                                                <button
-                                                    onClick={() => handleDelete(user.id)}
-                                                    className="text-red-500"
-                                                >
+                                                <button className="text-red-500"
+                                                    onClick={() => handleDelete(user.id)}>
                                                     Delete
                                                 </button>
                                             </>
                                         )}
-
                                     </td>
-
                                 </tr>
                             ))}
-
                         </tbody>
-
                     </table>
+
                 </div>
 
-                <Pagination
-                    page={page}
-                    totalPages={totalPages}
-                    onPageChange={changePage}
-                />
+                <Pagination page={page} totalPages={totalPages}
+                    onPageChange={changePage} />
 
             </div>
 

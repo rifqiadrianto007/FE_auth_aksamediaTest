@@ -19,11 +19,7 @@ export default function Pagination({
                 <button
                     key={p}
                     onClick={() => onPageChange(p)}
-                    className={`
-            px-3 py-1 border
-            ${p === page ? "bg-blue-500 text-white" : ""}
-          `}
-                >
+                    className={`px-3 py-1 border ${p === page ? "bg-blue-500 text-white" : ""}`}>
                     {p}
                 </button>
             ))}

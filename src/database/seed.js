@@ -6,6 +6,7 @@ export async function seedUsers() {
 
   if (users.length > 0) return
 
+  // Seed dummy users
   const dummy = [
     { name: "Agus Setiawan", email: "agus@mail.com" },
     { name: "Budi Santoso", email: "budi@mail.com" },

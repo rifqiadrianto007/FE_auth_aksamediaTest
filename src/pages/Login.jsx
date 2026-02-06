@@ -28,8 +28,7 @@ export default function Login() {
 
             <form
                 onSubmit={handleLogin}
-                className="bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-6 rounded w-full max-w-sm shadow"
-            >
+                className="bg-white dark:bg-gray-900 dark:border dark:border-gray-800 p-6 rounded w-full max-w-sm shadow">
 
                 <h2 className="text-xl font-bold mb-4">
                     Login
@@ -41,29 +40,17 @@ export default function Login() {
                     </div>
                 )}
 
-                <input
-                    type="text"
-                    placeholder="Username"
-                    className="w-full border p-2 mb-2"
-                    value={username}
+                <input type="text" placeholder="Username" className="w-full border p-2 mb-2" value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    className="w-full border p-2 mb-4"
-                    value={password}
+                <input type="password" placeholder="Password" className="w-full border p-2 mb-4" value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <button
-                    type="submit"
-                    className="w-full bg-blue-500 text-white p-2"
-                >
+                <button type="submit" className="w-full bg-blue-500 text-white p-2">
                     Login
                 </button>
-
             </form>
 
         </div>

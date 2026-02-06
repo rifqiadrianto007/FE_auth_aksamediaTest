@@ -21,9 +21,13 @@ export default function Navbar() {
             flex flex-wrap gap-3 justify-between items-center
         ">
 
-            <div className="font-bold">
+            <button
+                type="button"
+                onClick={() => navigate("/")}
+                className="font-bold text-left"
+            >
                 Aksamedia App
-            </div>
+            </button>
 
             <Dropdown
                 trigger={

@@ -8,7 +8,7 @@ export default function Dashboard() {
 
             <Navbar />
 
-            <div className="p-6">
+            <div className="p-6 max-w-5xl mx-auto w-full">
                 Dashboard Page
             </div>
 

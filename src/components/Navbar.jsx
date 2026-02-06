@@ -15,11 +15,11 @@ export default function Navbar() {
 
     return (
         <div className="
-      bg-white dark:bg-gray-900
-      border-b dark:border-gray-700
-      px-6 py-3
-      flex justify-between items-center
-    ">
+            bg-white dark:bg-gray-900
+            border-b dark:border-gray-700
+            px-4 sm:px-6 py-3
+            flex flex-wrap gap-3 justify-between items-center
+        ">
 
             <div className="font-bold">
                 Aksamedia App

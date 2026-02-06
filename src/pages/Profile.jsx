@@ -23,7 +23,7 @@ export default function Profile() {
 
             <Navbar />
 
-            <div className="p-6 max-w-md">
+            <div className="p-6 max-w-md w-full mx-auto">
 
                 <h1 className="text-xl font-bold mb-4">
                     Edit Profile

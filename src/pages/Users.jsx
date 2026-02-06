@@ -98,116 +98,118 @@ export default function Users() {
 
             <Navbar />
 
-            <div className="p-6">
+            <div className="p-6 max-w-6xl mx-auto w-full">
 
                 <h1 className="text-xl font-bold mb-4">
                     Users
                 </h1>
 
-                <div className="mb-4 flex gap-2">
+                <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
 
                     <input
                         placeholder="Search"
                         value={keyword}
                         onChange={(e) => changeSearch(e.target.value)}
-                        className="border p-2"
+                        className="border p-2 w-full sm:w-56"
                     />
 
                     <input
                         placeholder="New user"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="border p-2"
+                        className="border p-2 w-full sm:w-56"
                     />
 
                     <button
                         onClick={handleCreate}
-                        className="bg-blue-500 text-white px-4"
+                        className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto"
                     >
                         Add
                     </button>
 
                 </div>
 
-                <table className="w-full border">
+                <div className="overflow-x-auto">
+                    <table className="w-full min-w-130 border">
 
-                    <thead>
-                        <tr className="bg-gray-100">
-                            <th className="p-2 border">ID</th>
-                            <th className="p-2 border">Name</th>
-                            <th className="p-2 border">Action</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        {pageData.map(user => (
-                            <tr key={user.id}>
-
-                                <td className="p-2 border">
-                                    {user.id}
-                                </td>
-
-                                <td className="p-2 border">
-
-                                    {editingId === user.id ? (
-
-                                        <input
-                                            value={editingName}
-                                            onChange={(e) => setEditingName(e.target.value)}
-                                            className="border p-1"
-                                        />
-
-                                    ) : (
-                                        user.name
-                                    )}
-
-                                </td>
-
-                                <td className="p-2 border flex gap-2">
-
-                                    {editingId === user.id ? (
-                                        <>
-                                            <button
-                                                onClick={() => saveEdit(user.id)}
-                                                className="text-blue-500"
-                                            >
-                                                Save
-                                            </button>
-
-                                            <button
-                                                onClick={cancelEdit}
-                                                className="text-gray-500"
-                                            >
-                                                Cancel
-                                            </button>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <button
-                                                onClick={() => startEdit(user)}
-                                                className="text-blue-500"
-                                            >
-                                                Edit
-                                            </button>
-
-                                            <button
-                                                onClick={() => handleDelete(user.id)}
-                                                className="text-red-500"
-                                            >
-                                                Delete
-                                            </button>
-                                        </>
-                                    )}
-
-                                </td>
-
+                        <thead>
+                            <tr className="bg-gray-100">
+                                <th className="p-2 border">ID</th>
+                                <th className="p-2 border">Name</th>
+                                <th className="p-2 border">Action</th>
                             </tr>
-                        ))}
+                        </thead>
 
-                    </tbody>
+                        <tbody>
 
-                </table>
+                            {pageData.map(user => (
+                                <tr key={user.id}>
+
+                                    <td className="p-2 border">
+                                        {user.id}
+                                    </td>
+
+                                    <td className="p-2 border">
+
+                                        {editingId === user.id ? (
+
+                                            <input
+                                                value={editingName}
+                                                onChange={(e) => setEditingName(e.target.value)}
+                                                className="border p-1"
+                                            />
+
+                                        ) : (
+                                            user.name
+                                        )}
+
+                                    </td>
+
+                                    <td className="p-2 border flex flex-wrap gap-2">
+
+                                        {editingId === user.id ? (
+                                            <>
+                                                <button
+                                                    onClick={() => saveEdit(user.id)}
+                                                    className="text-blue-500"
+                                                >
+                                                    Save
+                                                </button>
+
+                                                <button
+                                                    onClick={cancelEdit}
+                                                    className="text-gray-500"
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <button
+                                                    onClick={() => startEdit(user)}
+                                                    className="text-blue-500"
+                                                >
+                                                    Edit
+                                                </button>
+
+                                                <button
+                                                    onClick={() => handleDelete(user.id)}
+                                                    className="text-red-500"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </>
+                                        )}
+
+                                    </td>
+
+                                </tr>
+                            ))}
+
+                        </tbody>
+
+                    </table>
+                </div>
 
                 <Pagination
                     page={page}
